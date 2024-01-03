@@ -4,3 +4,4 @@ project(oidaui)
 
 
 add_subdirectory(liboidaui)
+add_subdirectory(test)
