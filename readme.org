@@ -1,0 +1,29 @@
+* OidaUI
+
+OidaUI is a graphical user interface library built on top of [[Use of OpenGL][OpenGL]] for use in Linux, Windows, iOS,
+Android operating systems running i386, amd64, arm, and arm64 architectures. Other mixes of operating systems and
+architectures may also work, but those are just the targeted ones.
+
+OidaUI is designed to augment your software's UI capabilities while remaining an isolated from the rest of your
+enviroment. This means you can expect OidaUI to only lightly influence to your software's design to use at the
+expense of being more complicated to use. To compensate for this, much care is put into the [[file://doc/oidaui.org][manual]]
+when possible.
+
+* Building
+
+** Dependencies
+ - glm
+
+The main product of this repository is =liboidaui.so= which can be done by running:
+
+ - TODO
+
+You can also execute unit tests: TODO
+
+And, to build example applications: TODO
+
+
+
+* Use of OpenGL
+I have chose to use OpenGL instead of Vulkan promote portability, but also we do not need the power vulkan can
+provided to build a GUI library. But, sometime in the future I hope to have this library work with both APIs

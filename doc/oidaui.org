@@ -1,0 +1,16 @@
+* Deploying with OidaUI
+
+Sticking with our low-overhead sentiment. OidaUI does not and will not provide a means to deploy your software. How
+you deploy your software is up to you. With that being said, we have some quick-start guides depending on your target
+device.
+
+** Linux
+
+When deploying to linux, simply link the library to your software and you can either package the library along with
+your project, or, set it as a dependency for your software (depending on your distribution).
+
+=gcc mycode.c -loidaui=
+
+** Android
+** Windoows
+** iOS
