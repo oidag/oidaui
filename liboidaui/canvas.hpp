@@ -1,10 +1,10 @@
-#ifndef OIDAUI_CANVAS_H
-#define OIDAUI_CANVAS_H
+#ifndef OIDAUI_CANVAS_HPP
+#define OIDAUI_CANVAS_HPP
 
 
 #include <GL/gl.h>
 
-#include "element.h"
+#include "element.hpp"
 
 class Canvas: public Element {
 public:
@@ -15,4 +15,4 @@ public:
 };
 
 
-#endif //OIDAUI_CANVAS_H
+#endif //OIDAUI_CANVAS_HPP

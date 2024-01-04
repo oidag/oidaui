@@ -1,7 +1,7 @@
-#ifndef OIDAUI_ELEMENT_H
-#define OIDAUI_ELEMENT_H
+#ifndef OIDAUI_ELEMENT_HPP
+#define OIDAUI_ELEMENT_HPP
 
-#include "./font/font.h"
+#include "./font/font.hpp"
 
 class Bounds {
 public:
@@ -36,4 +36,4 @@ protected:
 
 };
 
-#endif //OIDAUI_ELEMENT_H
+#endif //OIDAUI_ELEMENT_HPP
