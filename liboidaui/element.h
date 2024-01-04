@@ -1,6 +1,8 @@
 #ifndef OIDAUI_ELEMENT_H
 #define OIDAUI_ELEMENT_H
 
+#include "./font/font.h"
+
 class Bounds {
 public:
 	unsigned int widthMax;
@@ -25,6 +27,8 @@ public:
 
 	Bounds getBounds() {return this->bounds;}
 	Position getPosition() {return this->position;}
+
+	void setFont(Font *f);
 
 protected:
 	Bounds bounds{0};
