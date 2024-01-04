@@ -5,6 +5,8 @@
 extern "C" {
 #endif
 
+#include "error.h"
+
 #define export __attribute__((__visibility__("default")))
 
 

@@ -1,4 +1,13 @@
-file(GLOB lib_src ../liboidaui/*.cpp)
+file(GLOB lib_src
+		../liboidaui/*.cpp
+		../liboidaui/elements/*.cpp
+		../liboidaui/font/*.cpp)
 
-add_executable(test_glfw test_glfw.c ${lib_src})
-target_link_libraries(test_glfw glfw GL)
+include_directories(../include)
+
+find_package(Freetype REQUIRED)
+
+add_executable(test_glfw test_glfw.cpp ${lib_src})
+target_link_libraries(test_glfw glfw GL ${FREETYPE_LIBRARIES})
+
+target_include_directories(test_glfw PRIVATE ${FREETYPE_INCLUDE_DIRS})
