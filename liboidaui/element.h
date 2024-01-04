@@ -1,7 +1,3 @@
-//
-// Created by kmarschke on 1/2/24.
-//
-
 #ifndef OIDAUI_ELEMENT_H
 #define OIDAUI_ELEMENT_H
 
@@ -21,26 +17,19 @@ public:
 
 class Element {
 public:
-	Element(){this->bounds={0};};
-	virtual ~Element(){};
+	Element();
+	virtual void draw() = 0;
 
-	// When draw is called,
-	virtual void draw();
+	// note: may not always do something. returns non-0 if the action failed.
+	virtual int addElement(Element *elm) {return 1;};
 
 	Bounds getBounds() {return this->bounds;}
 	Position getPosition() {return this->position;}
 
 protected:
-	Bounds bounds;
-	Position position;
+	Bounds bounds{0};
+	Position position{0};
 
 };
-
-class ElementContainer: Element {
-public:
-	virtual void addElement(Element *elm);
-
-};
-
 
 #endif //OIDAUI_ELEMENT_H

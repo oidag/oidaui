@@ -1,7 +1,3 @@
-//
-// Created by kmarschke on 1/2/24.
-//
-
 #ifndef OIDAUI_CANVAS_H
 #define OIDAUI_CANVAS_H
 
@@ -10,9 +6,12 @@
 
 #include "element.h"
 
-class Canvas: ElementContainer {
+class Canvas: public Element {
 public:
 	Canvas();
+	~Canvas();
+	void draw();
+	int addElement(Element *elm);
 };
 
 
