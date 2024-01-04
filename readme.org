@@ -1,20 +1,64 @@
 * OidaUI
 
-OidaUI is a graphical user interface library built on top of [[Use of OpenGL][OpenGL]] for use in Linux, Windows, iOS,
-Android operating systems running i386, amd64, arm, and arm64 architectures. Other mixes of operating systems and
-architectures may also work, but those are just the targeted ones.
+OidaUI is a graphical user interface library built on top of [[Use of OpenGL][OpenGL]]
+for use in Linux, Windows, iOS, and Android operating systems running
+i386, amd64, and arm architectures. Other mixes of operating systems
+and architectures may also work, but those are just the targeted
+ones... the principle is if you can get a OpenGL context running, you
+can run OidaUI on it.
 
-OidaUI is designed to augment your software's UI capabilities while remaining an isolated from the rest of your
-enviroment. This means you can expect OidaUI to only lightly influence to your software's design to use at the
-expense of being more complicated to use. To compensate for this, much care is put into the [[file://doc/oidaui.org][manual]]
-when possible.
+OidaUI is designed to augment your software's UI capabilities while
+remaining an isolated from the rest of your enviroment. This means you
+can expect OidaUI to only lightly influence to your software's design
+at the expense of being more complicated to use. To compensate for
+this, much care is put into the [[file://doc/oidaui.org][manual]] when possible.
 
-* Building
+At its core, OidaUI is a shared library that exports standard C
+symbols. Although OidaUI is built with C++, we choose to export only C
+symbols for maximum portability. Plus, the fewer exported symbols, the
+better.
+
+OidaUI utilizes hardware acceleration for many of its processes when
+it can.
+
+* Design
+
+** The Canvas
+When you've selected an OpenGL context to utilize OidaUI, that context
+is known as "The Canvas". 
+
+** Elements
+OidaUI's design is close to that of HTML, each UI item (textbox,
+button, label, image, ect) is known as an "element".
+
+Depending on the type of element, elements can or can't contain other
+elements.
+
+All elements have a size in width and height. A given element will
+dictate its own min/max width and height. But the element's parent
+will ultimately dictate the computed width and height so long that it
+remains in the min/max bounds.
+
+A parent's bounding box will always be equal or greater than the sum
+of the area of its children's. (This is a big difference when compared
+to how HTML is rendered, where in HTML you can have things that render
+outside the bounding box of their parent.)
+
+Each element does have a z-position. This is the same as z-index in
+terms of HTML. The default behaviour is the parent's z-pos plus one.
+
+* Developing
+Debian is the perferred platform for developing OidaUI on. So going
+forward it is assumed you are running Debian or similar.
 
 ** Dependencies
- - glm
+ - =libglm-dev= (0.9.9.8)
+ - =libfreetype-dev= (2.11.1)
+ - =libglfw3-dev= (3.3.6) - optional, needed for some tests
+ - =libgl-dev= (1.4.0)
 
-The main product of this repository is =liboidaui.so= which can be done by running:
+The main product of this repository is =liboidaui.so= which can be
+done by running:
 
  - TODO
 
@@ -22,8 +66,12 @@ You can also execute unit tests: TODO
 
 And, to build example applications: TODO
 
-
-
+* Software Architecture
 * Use of OpenGL
 I have chose to use OpenGL instead of Vulkan promote portability, but also we do not need the power vulkan can
 provided to build a GUI library. But, sometime in the future I hope to have this library work with both APIs
+* Use of Git
+
+Each commit on master will be a line item on the change log, with the
+first line of each commit message being the most visible aspect. A
+tagged commit denotes a release of sorts.

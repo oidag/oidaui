@@ -1,33 +1,28 @@
-* Limitations to C++
+* Legal
+Before you contribute, see LICENSE.
 
- - With the exception of mathmatical entities (vectors, matrixes, ect) - operators are not allowed
- - Avoid public variables of classes, if a class does have a public variable, its assumed to be thread-safe to access
+Copyright holders can be found in AUTHORS.
+
+Contributing to OidaGroup upstreams requires special legal
+steps. After submitting to us any changes, we will contact you with
+steps that must happen prior to the changes being applied.
+
+* Standards for C++
+
+ - With the exception of mathmatical entities (vectors, matrixes,
+   ect) - operators are not allowed
+ - Avoid public variables of classes, if a class does have a public
+   variable, its assumed to be thread-safe to access
  - Absolutely no function-argument references, only pointers
  - Composition is better than inheritance. Use inheritance wisely, if at all.
- - If you do intend to have a class inhertiable, document it. And make sure all methods have the =final= specificer
-   that you do not intend to have overridden... open-ended polymorphism can lead to confusion more often than usefulness.
+ - If you do intend to have a class inhertiable, document it. And make
+   sure all methods have the =final= specificer that you do not intend
+   to have overridden... open-ended polymorphism can lead to confusion
+   more often than usefulness.
  - no templates.
 
 
-* Naming conventions
+** Naming conventions
  - cpp Classnames are CapCase
  - cpp fields are camelCase
  - (exported) c functions are snake_case
-
-
-* Architecture
-
-OidaUI's design is close to that of HTML, each UI item (textbox, button, label, image, ect) is known as an "element".
-
-Depending on the type of element, elements can or can't contain other elements.
-
-All elements have an position on the canvas, known as the absolutePos.
-
-All elements have a size in width and height. A given element will dictate its own min/max width and height. But the
-element's parent will ultimately dictate the computed width and height (provided the computed width/height will always
-be in the ange of the min/max).
-
-A parent's bounding box will always be equal or greater than the sum of the area of its children's.
-
-Each element does technically have a z-position. This is the same as z-index. The default behaviour is the parent's z-pos
-plus one.
