@@ -6,4 +6,6 @@ typedef enum {
 	OUI_ECRITICAL,
 } oui_err;
 
+const char *oui_errstr(oui_err error);
+
 #endif //OIDAUI_ERROR_H
