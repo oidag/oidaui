@@ -1,5 +1,6 @@
 #include <oidaui/oidaui.h>
 #include "canvas.hpp"
+#include "font/font.hpp"
 
 int odui_alloc(odui_canvas **o_canvas) {
 	Canvas *ret = new Canvas();
@@ -24,4 +25,16 @@ int odui_add(odui_element *parent, odui_element *child) {
 	Element *p = (Element *)parent;
 	Element *c = (Element *)child;
 	return p->addElement(c);
+}
+
+
+oui_err oui_init() {
+	oui_err err;
+	if ((err = Font::Initialize())) {
+		return err;
+	}
+}
+
+void oui_free() {
+	Font::Free();
 }
