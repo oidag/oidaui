@@ -20,6 +20,8 @@ steps that must happen prior to the changes being applied.
    to have overridden... open-ended polymorphism can lead to confusion
    more often than usefulness.
  - no templates.
+ - Header files in C++ use =.hpp= annotation. =.c= and =.h= are reserved for files
+   written in C.
 
 
 ** Naming conventions

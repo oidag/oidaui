@@ -1,5 +1,5 @@
 #include <oidaui/oidaui.h>
-#include "canvas.h"
+#include "canvas.hpp"
 
 int odui_alloc(odui_canvas **o_canvas) {
 	Canvas *ret = new Canvas();
