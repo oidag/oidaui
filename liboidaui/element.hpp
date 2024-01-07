@@ -28,7 +28,7 @@ public:
 	Bounds getBounds() {return this->bounds;}
 	Position getPosition() {return this->position;}
 
-	void setFont(Font *f);
+	virtual void setFont(TypeFace *f);
 
 protected:
 	Bounds bounds{0};

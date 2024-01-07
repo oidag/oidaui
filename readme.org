@@ -67,9 +67,18 @@ You can also execute unit tests: TODO
 And, to build example applications: TODO
 
 * Software Architecture
+
 * Use of OpenGL
 I have chose to use OpenGL instead of Vulkan promote portability, but also we do not need the power vulkan can
 provided to build a GUI library. But, sometime in the future I hope to have this library work with both APIs
+
+** Standard Matrix and Positioning
+
+OidaUI renders on orthographic projection matrix. The pixel at (0,0) will always
+be in the *top left*. Each element will have a bounding box that is placed on
+a pixel and width and height will be measured in pixels as well. Whatever
+happens inside of the bounding box depends on the element.
+
 * Use of Git
 
 Each commit on master will be a line item on the change log, with the

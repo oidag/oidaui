@@ -4,6 +4,20 @@
 #include "error.h"
 #include "common.h"
 
+struct oui_font_measurement {
+
+	// the overall pixel width of the text
+	int width;
+
+	// baselineAbove + baselineBelow
+	int height;
+
+	// pixels above the baseline
+	int baselineAbove;
+
+	// pixels below the baseline
+	int baselineBelow;
+};
 
 struct oui_typeface_config {
 

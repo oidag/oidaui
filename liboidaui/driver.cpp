@@ -30,7 +30,7 @@ int odui_add(odui_element *parent, odui_element *child) {
 
 oui_err oui_init() {
 	oui_err err;
-	if ((err = Font::Initialize())) {
+	if ((err = Font::Initialize(0, 0))) {
 		return err;
 	}
 }

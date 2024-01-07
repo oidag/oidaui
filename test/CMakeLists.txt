@@ -1,6 +1,7 @@
 file(GLOB lib_src
-		../liboidaui/*.cpp
-		../liboidaui/elements/*.cpp
+#		../liboidaui/*.cpp
+#		../liboidaui/elements/*.cpp
+		../liboidaui/errors.c
 		../liboidaui/font/*.cpp)
 
 include_directories(../include)
