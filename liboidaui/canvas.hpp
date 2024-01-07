@@ -3,6 +3,7 @@
 
 
 #include <GL/gl.h>
+#include <oidaui/oidaui.h>
 
 #include "element.hpp"
 
@@ -12,6 +13,15 @@ public:
 	~Canvas();
 	void draw();
 	int addElement(Element *elm);
+};
+
+class PixelPos {
+public:
+	explicit PixelPos(struct oui_pixel p) {pixel = p;};
+	explicit operator struct oui_pixel() {return pixel;};
+
+private:
+	struct oui_pixel pixel{};
 };
 
 
