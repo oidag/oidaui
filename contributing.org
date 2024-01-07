@@ -22,7 +22,24 @@ steps that must happen prior to the changes being applied.
  - no templates.
  - Header files in C++ use =.hpp= annotation. =.c= and =.h= are reserved for files
    written in C.
+ - (writting this knowing I'm no expert in c++), I'd much rather avoid any use
+   of std:: wrappers and certainly avoid implementing boost. This desire
+   is brought about past years' expose to  Kernighan and Pike's "Practice of
+   Programming". In short, simplicity is key. I want to utilize C++ typing
+   abilities but, C++ is famous for giving you enough rope to hang yourself
+   with. And lastly, our exported library will be a C interface anyways.
+ - All filenames are in snake-case.
+ - Every namespace needs its own folder. The folder should be the name of
+   the namespace. In the folder there should be a .hpp file named the same
+   as the namespace as well.
+ - Anytime this library accepts a string argument to be rendered against a font,
+   that string will be encoded in UCS-2 (eventually i'll plan to have UTF-16
+   support)
 
+** Style
+ - Use tabs to visualize scope. Use spaces for alignment
+ - Namespaces' scope should not be visualized (do not add tabs for namespaces)
+ - Open curly brackets should be on the same line they're needed (K&R style)
 
 ** Naming conventions
  - cpp Classnames are CapCase
