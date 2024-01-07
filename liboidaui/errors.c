@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <errno.h>
-
 #include <oidaui/oidaui.h>
 #include "errors.h"
 

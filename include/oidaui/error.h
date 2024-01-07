@@ -5,6 +5,7 @@ typedef enum {
 	OUI_ENONE,
 	OUI_ECRITICAL,
 	OUI_EUNKNOWN,
+	OUI_EINVAL,
 } oui_err;
 
 const char *oui_errstr(oui_err error);
