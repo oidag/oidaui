@@ -27,7 +27,6 @@ struct Font::character {
 
 util::Shader *glyphShader;
 
-//todo: https://learnopengl.com/In-Practice/Text-Rendering
 oui_err Font::TypeFace::load(const char *path, struct oui_typeface_config c) {
 
 	this->config = c;

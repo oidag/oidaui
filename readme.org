@@ -84,3 +84,15 @@ happens inside of the bounding box depends on the element.
 Each commit on master will be a line item on the change log, with the
 first line of each commit message being the most visible aspect. A
 tagged commit denotes a release of sorts.
+* Influences
+When I start a large project like this, I like to list out what
+products/projects/people influence my decisions in designing this
+thing. So check these people out and the work they do, if you like
+this project you'll like theirs and vice versa.
+
+ - https://musescore.org/
+ - https://fyne.io/
+ - https://www.gtk.org/
+ - https://www.gimp.org/
+ - https://www.libreoffice.org/
+ - https://learnopengl.com/

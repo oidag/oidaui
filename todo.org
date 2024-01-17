@@ -1,0 +1,36 @@
+* Todo list for v1.0
+
+Mind you, this list will be a small one. We'll focus on the core stuff
+first. I should be able to use this library to make a simple CRM app,
+and maybe some fancy graphs to go with it.
+
+So I'll cross these off as I go. Hopefully I don't forget this list exists.
+
+* Elements
+ - [ ] GLView
+ - [ ] Glyph
+ - [ ] Text View
+ - [ ] Button
+ - [ ] Text Entry
+ - [ ] Image
+ - [ ] Checkbox
+ - [ ] Progress Bar
+ - [ ] TMenu
+ - [ ] GraphEuclidean
+  - [ ] GraphLine
+  - [ ] GraphBox
+  - [ ] GraphScatter
+
+* Layouts
+
+ - [ ] Freeform
+ - [ ] Grid
+ - [ ] Table
+
+* Features
+
+ - [ ] Custom shaders.. which would cover colors, glow, lots of stuff.
+
+* v1.1+
+
+ - Calendar

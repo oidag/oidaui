@@ -42,8 +42,6 @@ private:
 	unsigned int VAO{}, VBO{};
 };
 
-void Test(unsigned int width, unsigned int height);
-
 /**
  * After Initialized returns successfully, make sure to call Orthographic
  * to update the Font rendering matrix initially, and call Orthographic
