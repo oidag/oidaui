@@ -68,9 +68,31 @@ And, to build example applications: TODO
 
 * Software Architecture
 
+** System-Ignorant
+
+OidaUI is designed to be completely agnostic of your windowing system, as well
+as hardware and OS. OidaUI only cares that whatever its running on is using
+OpenGL. You are responsible for attaching the window to a GL context (such as
+through GLFW, EGL, ect). And after that OidaUI can take over. This is in
+contrast to other UI libraries:
+
+ - OidaUI will NOT open other windows for you
+ - OidaUI will NOT interact with the file system for you
+ - OidaUI will only interact with the graphics driver, no other hardware
+
 * Use of OpenGL
 I have chose to use OpenGL instead of Vulkan promote portability, but also we do not need the power vulkan can
 provided to build a GUI library. But, sometime in the future I hope to have this library work with both APIs
+
+** Note about iOS
+
+Apple has recently made its OpenGL implementation deprecated in an
+attempt to make its operating system less useful, I guess. So I'll be
+suspending iOS support. You're welcome to make your own ports via MoltenGL/VK or
+something, but overall I would advise you to just not to develop for Apple
+products and tell your customers that Apple products fail to support the
+modern engineering required to run your technology.
+
 
 ** Standard Matrix and Positioning
 
