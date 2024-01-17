@@ -4,22 +4,7 @@
 
 #include <oidaui/oidaui.h>
 #include "canvas.hpp"
+#include "cursor.hpp"
 
-
-Canvas::Canvas()  : Element(){
-
-}
-
-Canvas::~Canvas()  {
-
-}
-
-void Canvas::draw() {
-	glClearColor(1,0,0,1);
-}
-
-int Canvas::addElement(Element *elm) {
-	return 0;
-}
 
 

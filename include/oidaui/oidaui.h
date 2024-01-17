@@ -25,7 +25,28 @@ export int odui_add(odui_element *parent, odui_element **childrenv, int children
 typedef struct oui_pixel {
 	int x;
 	int y;
-} oui_pixel;
+} oui_pixel_t;
+
+typedef struct oui_vec3 {
+	union {
+		int x;
+		int width;
+	};
+	union {
+		int y;
+		int height;
+	};
+	union {
+		int z;
+		int depth;
+	};
+} oui_vec3_t;
+
+typedef struct oui_bounds {
+	struct oui_vec3 max;
+	struct oui_vec3 min;
+} oui_bounds_t;
+
 
 #ifdef __cplusplus
 }
