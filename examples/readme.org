@@ -1,0 +1,13 @@
+* Regarding examples
+
+I think the best example are ones that satisfy the following:
+ 
+ 1. Are easy to compile
+ 2. Framed to be a good "template" or "bare bones start" to a larger project
+ 3. Are very well documented as to whats going on down to the smallest
+    details
+
+So I encourage you to copy-paste each one of these projects, see if
+you can build it and get it to run, and then start to play around with
+it and put in some of your own tweaks. This is a good practice to best
+understand a library like this.
