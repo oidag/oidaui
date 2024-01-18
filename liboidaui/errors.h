@@ -5,6 +5,7 @@ extern "C" {
 #endif
 
 #include <oidaui/error.h>
+#include "locale.h"
 
 #define log_critf(fmt, ...) _log_critf(__FILE__, __LINE__, fmt, ##__VA_ARGS__)
 

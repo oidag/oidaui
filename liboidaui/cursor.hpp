@@ -24,7 +24,7 @@ struct {
 	/**
 	 * what new elements will automatically be added to when created.
 	 */
-	IParent *parent;
+	Node *parent;
 
 	Canvas *canvas;
 

@@ -42,6 +42,11 @@ typedef struct oui_vec3 {
 	};
 } oui_vec3_t;
 
+typedef struct oui_layout {
+	oui_vec3_t dimensions;
+	oui_vec3_t location;
+} oui_layout_t;
+
 typedef struct oui_bounds {
 	struct oui_vec3 max;
 	struct oui_vec3 min;

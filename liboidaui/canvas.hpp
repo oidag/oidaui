@@ -1,87 +1,44 @@
 #ifndef OIDAUI_CANVAS_HPP
 #define OIDAUI_CANVAS_HPP
 
-#include <GL/gl.h>
 #include <oidaui/oidaui.h>
+#include "node.hpp"
 
 namespace canvas {
 
-class Element;
 class Canvas;
 
-class IParent {
-public:
-	~IParent();
-
-	virtual void addChild(Element *) final;
-	virtual void removeChild(canvas::Element *child) final;
-	virtual Element **getChildren(int *o_childrenc) const final;
-
-private:
-	int       childrenq = 0;
-	Element **childrenv = 0;
-	int       childrenc = 0;
-	int       childID = 0;
-};
-
-class Element : public IParent {
-public:
-	/**
-	 * If element is not supplied with canvas, then the one from the cursor
-	 * is used.
-	 */
-	Element();
-	explicit Element(Canvas *canvas);
-
-	virtual ~Element();
-
-	virtual struct oui_bounds getBounds() = 0;
-	virtual struct oui_vec3 getPosition() = 0;
-	virtual void setSize(struct oui_vec3) = 0;
-
-	/**
-	 * Returns the canvas that is managing the element.
-	 */
-	Canvas *getCanvas() const;
-
-protected:
-	virtual void draw() = 0;
-
-private:
-	void preDraw() const;
-	void postDraw() const;
-	IParent *parent = 0;
-	Canvas *canvas = 0;
-	int canvasID = 0;
-
-	void init(Canvas *canvas);
-
-	friend class IParent;
-	friend class Canvas;
-};
 
 
-class Canvas final {
+class Canvas final : Node {
 public:
 	Canvas();
 	~Canvas();
-	void draw();
+
+	void draw(oui_layout_t layout) final;
 
 	/**
 	 * If an element is managed by the canvas, that means that when the canvas
 	 * is destructed, it will implicitly destruct all managed elements as well.
 	 *
-	 *
 	 * Not sure why you would ever need to relinquish a managed element, but
-	 * there you go.
+	 * there you go. relinquish is safe to call in the element's destructor (
+	 * despite the chance that destructor is being executed because the canvas's
+	 * destructor was called first and thus is invoking its managed elements'
+	 * destructors).
 	 */
-	void manage(Element *e);
-	void relinquish(Element *e);
+	void manage(Node *e);
+	void relinquish(Node *e);
 
 private:
+	// just to satsify Node
+	oui_bounds_t getBounds() override {return oui_bounds_t{};};
+
 	int       managedq = 0;
-	Element **managedv = 0;
+	Node    **managedv = 0;
 	int       managedc = 0;
+
+	bool      destructing = false;
 };
 
 oui_err Initialize();

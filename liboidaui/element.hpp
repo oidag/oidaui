@@ -1,39 +1,35 @@
 #ifndef OIDAUI_ELEMENT_HPP
 #define OIDAUI_ELEMENT_HPP
 
-#include "./font/font.hpp"
+#include "canvas.hpp"
 
-class Bounds {
-public:
-	unsigned int widthMax;
-	unsigned int widthMin;
-	unsigned int heightMax;
-	unsigned int heightMin;
-};
-class Position {
-public:
-	unsigned int x;
-	unsigned int y;
-	unsigned int z;
-};
+namespace canvas {
 
-class Element {
+class Element : public Node {
 public:
+	/**
+	 * If element is not supplied with canvas, then the one from the cursor
+	 * is used.
+	 */
 	Element();
-	virtual void draw() = 0;
 
-	// note: may not always do something. returns non-0 if the action failed.
-	virtual int addElement(Element *elm) {return 1;};
+	explicit Element(Canvas *canvas);
 
-	Bounds getBounds() {return this->bounds;}
-	Position getPosition() {return this->position;}
-
-	virtual void setFont(TypeFace *f);
+	~Element();
 
 protected:
-	Bounds bounds{0};
-	Position position{0};
 
+
+private:
+
+	void draw(oui_layout_t layout);
+	void preDraw() const;
+	void postDraw() const;
+	void init(Canvas *canvas);
+
+	friend class Canvas;
 };
+
+}
 
 #endif //OIDAUI_ELEMENT_HPP
