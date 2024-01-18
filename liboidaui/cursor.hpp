@@ -26,6 +26,8 @@ struct {
 	 */
 	IParent *parent;
 
+	Canvas *canvas;
+
 } cursor;
 
 
