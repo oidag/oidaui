@@ -33,10 +33,46 @@ public:
 	 * canvas and should be drawn.
 	 */
 	virtual bool attached() const final;
-	virtual void addChild(Node *) final;
-	virtual void removeChild(canvas::Node *child) final;
 
+	/**
+	 * Add child nodes to this element. If the child node already has
+	 * a parent, then the child is removed from that parent implicitly.
+	 *
+	 * The child will become managed by the parent's canvas (if the parent is
+	 * already being managed)
+	 *
+	 * Errors:
+	 *  - OUI_ERECURSE - caller is trying to add a parent node to
+	 *    a child node (child->hasDescendant didn't return -1)
+	 */
+	virtual oui_err addChild(Node *child) final;
+
+	/**
+	 * Remove the child node from this parent. This will also relinquish the
+	 * node from the canvas (if that has been set)
+	 *
+	 * Errors:
+	 *  - OUI_ENORECURSE (removeChild) - child doesn't belong to this parent
+	 */
+	virtual oui_err removeChild(canvas::Node *child) final;
+
+	/**
+	 * If node is not a descendant of this, then -1 is returned. Otherwise, the
+	 * level of descendant is returned. With 0 being the fact that this node
+	 * is the same as this, 1 being a child, 2 being a great child, ect.
+	 */
+	virtual int hasDescendant(Node *node) final;
+
+	/**
+	 * Returns all direct children of this node, with *o_children being set to
+	 * the size of the returned array.
+	 */
 	virtual Node **getChildren(int *o_childrenc) const final;
+
+	/**
+	 * Returns the canvas that is managing this element, or otherwise null
+	 * if this element is not managed by a canvas.
+	 */
 	virtual Canvas *getCanvas() const final;
 
 
@@ -56,8 +92,8 @@ protected:
 
 private:
 
-	Node     *parent = 0;
 	Canvas   *canvas = 0;
+	Node     *parent = 0;
 	int       childrenq = 0;
 	Node    **childrenv = 0;
 	int       childrenc = 0;
